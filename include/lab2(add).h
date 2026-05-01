@@ -1,1 +1,1 @@
-void run_lab2(add)(void);
+void run_lab2_add(void);
