@@ -1,59 +1,46 @@
 #include <stdio.h>
 #include "include/lab1.h"
+#include "include/lab1(add).h"
 #include "include/lab2.h"
+#include "include/lab2(add).h"
 #include "include/lab3.h"
-
-void print_menu(void)
-{
-    printf("\n=============================\n");
-    printf("       Главное меню\n");
-    printf("=============================\n");
-    printf("1. Лаб. 1 — Вычисление расстояния\n");
-    printf("2. Лаб. 2 — Сумма ряда\n");
-    printf("3. Лаб. 3 — Слова с гласной\n");
-    printf("0. Выход\n");
-    printf("Ваш выбор: ");
-}
+#include "include/lab4(add).h"
+#include "include/lab5.h"
+#include "include/lab5(add).h"
 
 int main(void)
 {
     int choice;
-    int running = 1;
-
-    while (running)
+    while (1)
     {
-        print_menu();
-
+        printf("\n--- Меню ---\n");
+        printf("1.  Лаба 1\n");
+        printf("2.  Лаба 1 доп\n");
+        printf("3.  Лаба 2\n");
+        printf("4.  Лаба 2 доп\n");
+        printf("5.  Лаба 3\n");
+        printf("6.  Лаба 4 доп\n");
+        printf("7.  Лаба 5\n");
+        printf("8.  Лаба 5 доп\n");
+        printf("0.  Выход\n");
+        printf("Выбор: ");
         if (scanf("%d", &choice) != 1)
         {
-            printf("Ошибка ввода.\n");
             while (getchar() != '\n');
             continue;
         }
-
         switch (choice)
         {
-            case 1:
-                printf("\n--- Лаб. 1 ---\n");
-                run_lab1();
-                break;
-            case 2:
-                printf("\n--- Лаб. 2 ---\n");
-                run_lab2();
-                break;
-            case 3:
-                printf("\n--- Лаб. 3 ---\n");
-                run_lab3();
-                break;
-            case 0:
-                printf("Выход.\n");
-                running = 0;
-                break;
-            default:
-                printf("Неверный выбор.\n");
-                break;
+            case 1:  run_lab1();      break;
+            case 2:  run_lab1_add();  break;
+            case 3:  run_lab2();      break;
+            case 4:  run_lab2_add();  break;
+            case 5:  run_lab3();      break;
+            case 6:  run_lab4_add();  break;
+            case 7:  run_lab5();      break;
+            case 8:  run_lab5_add();  break;
+            case 0:  printf("Выход.\n"); return 0;
+            default: printf("Неверный выбор.\n");
         }
     }
-
-    return 0;
 }
